@@ -20,9 +20,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #uh-toggle-btn {
+    z-index: 9999;
     position: fixed;
     bottom: 0;
-    right: 0;
+    width: 80px;
+    height: 80px;
+    right: ${props => props.iconPos === 'left' ? 'calc(100% - 80px)' : 0};
     cursor: pointer;
   }
 
@@ -135,7 +138,7 @@ export const GlobalStyle = createGlobalStyle`
   .uh-feedback {
     position: absolute;
     width: 100%;
-    top: -56px;
+    top: -35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,5 +232,44 @@ export const GlobalStyle = createGlobalStyle`
 
   .uh-no-posts svg g {
     fill: #d1d1d1;
+  }
+  
+  .uh-fb-container {
+    position: relative;
+  }
+
+  .uh-send-icon {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    cursor: pointer;
+  }
+
+  .uh-email {
+    outline: none;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    overflow: hidden;
+    padding: 9px 7px 7px;
+    box-sizing: border-box;
+    width: 100%;
+    background: white;
+  }
+
+  .uh-email input {
+    padding: 0;
+    font-size: 13px;
+  }
+
+  .uh-fb-sent {
+    font-size: 13px;
+    color: rgb(66, 66, 66);
+    display: flex;
+    align-items: center;
+  }
+
+  .uh-fb-sent svg{
+    margin-right: 6px;
+    fill: #00d8a6
   }
 `;
