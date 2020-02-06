@@ -56,13 +56,13 @@ span {
 }
 
 .uh-showSideNav {
-  width: 400px;
+  width: 320px;
 }
 
 .uh-sidenav-title {
   align-items: center;
   position: fixed;
-  width: 400px;
+  width: 320px;
   top: 0;
   transition: top 0.5s ease;
   padding: 20px;
@@ -74,7 +74,7 @@ span {
 
 .uh-sidenav-search {
   position: fixed;
-  width: 400px;
+  width: 320px;
   top: 0;
   transition: top 0.5s ease;
   padding: 20px;
