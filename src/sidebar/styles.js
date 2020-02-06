@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   #uh-toggle-btn {
-    z-index: 9999;
     position: fixed;
     bottom: 0;
     width: 80px;
