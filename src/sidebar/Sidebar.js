@@ -126,9 +126,7 @@ export const Sidebar = () => {
                     {blog.title}
                     {blog.category_title ? ` - ${blog.category_title}` : ''}
                   </div>
-                  <div>
-                    {blog.post_content}
-                  </div>
+                  <div dangerouslySetInnerHTML={{ __html: blog.post_content }} />
                 </div>
                 <div className="uh-fb-form">
                   <div className="uh-fb-container">
