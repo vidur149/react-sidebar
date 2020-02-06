@@ -61,7 +61,7 @@ span {
 
 .uh-sidenav-title {
   align-items: center;
-  position: fixed;
+  position: static;
   width: 320px;
   padding: 20px;
   display: flex;
@@ -87,7 +87,6 @@ span {
 
 #uh-blogs,
 #uh-cats {
-  margin-top: 67px;
   height: calc(100vh - 67px);
   overflow-y: auto;
   padding: 10px;
