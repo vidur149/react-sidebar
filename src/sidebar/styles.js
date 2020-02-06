@@ -64,14 +64,12 @@ span {
   position: fixed;
   width: 320px;
   top: 0;
-  transition: top 0.5s ease;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   color: white;
   background: linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%);
   z-index: 9999;
-  min-height: 100px;
 }
 
 .uh-sidenav-search {
