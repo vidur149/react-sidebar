@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/react-sidebar/static/js/main.4c720748.chunk.js",
-    "main.js.map": "/react-sidebar/static/js/main.4c720748.chunk.js.map",
+    "main.js": "/react-sidebar/static/js/main.8219630d.chunk.js",
+    "main.js.map": "/react-sidebar/static/js/main.8219630d.chunk.js.map",
     "runtime-main.js": "/react-sidebar/static/js/runtime-main.51e74cfc.js",
     "runtime-main.js.map": "/react-sidebar/static/js/runtime-main.51e74cfc.js.map",
-    "static/js/2.8d784ea9.chunk.js": "/react-sidebar/static/js/2.8d784ea9.chunk.js",
-    "static/js/2.8d784ea9.chunk.js.map": "/react-sidebar/static/js/2.8d784ea9.chunk.js.map",
+    "static/js/2.5fe8c359.chunk.js": "/react-sidebar/static/js/2.5fe8c359.chunk.js",
+    "static/js/2.5fe8c359.chunk.js.map": "/react-sidebar/static/js/2.5fe8c359.chunk.js.map",
     "index.html": "/react-sidebar/index.html",
-    "precache-manifest.a847faabda2feb963e0d7d10b4da8a02.js": "/react-sidebar/precache-manifest.a847faabda2feb963e0d7d10b4da8a02.js",
+    "precache-manifest.f648b355d00b0019b51ffd7806191372.js": "/react-sidebar/precache-manifest.f648b355d00b0019b51ffd7806191372.js",
     "service-worker.js": "/react-sidebar/service-worker.js",
-    "static/js/2.8d784ea9.chunk.js.LICENSE.txt": "/react-sidebar/static/js/2.8d784ea9.chunk.js.LICENSE.txt",
+    "static/js/2.5fe8c359.chunk.js.LICENSE.txt": "/react-sidebar/static/js/2.5fe8c359.chunk.js.LICENSE.txt",
     "static/media/flat.5a1f923a.svg": "/react-sidebar/static/media/flat.5a1f923a.svg",
     "static/media/happy.a6223361.svg": "/react-sidebar/static/media/happy.a6223361.svg",
     "static/media/sad.bebeaf66.svg": "/react-sidebar/static/media/sad.bebeaf66.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.51e74cfc.js",
-    "static/js/2.8d784ea9.chunk.js",
-    "static/js/main.4c720748.chunk.js"
+    "static/js/2.5fe8c359.chunk.js",
+    "static/js/main.8219630d.chunk.js"
   ]
 }
