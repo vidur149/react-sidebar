@@ -4,7 +4,7 @@ export const SETTINGS_API = `https://app.userhoot.com/notify/assets?projectkey=$
 
 export const CATEGORY_API = `https://app.userhoot.com/notify/categories?projectkey=${window.uHootSettings.projectKey}`;
 
-export const FEEDBACK_API = `https://app.userhoot.com/notify/feedback?projectkey=${window.uHootSettings.projectKey}`;
+export const FEEDBACK_API = `https://app.userhoot.com/notify/feedback/save?projectkey=${window.uHootSettings.projectKey}`;
 
 export const NO_POSTS_MESSAGE = 'No posts to display yet';
 
