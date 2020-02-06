@@ -3,6 +3,7 @@ import { getData } from '../utils';
 import List from '@material-ui/core/List';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ListItem from '@material-ui/core/ListItem';
+import Drawer from '@material-ui/core/Drawer';
 import ListItemText from '@material-ui/core/ListItemText';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -75,13 +76,21 @@ export const Sidebar = () => {
   React.useEffect(() => {
     const toggleLink = document.getElementById('toggle-sidebar');
     const toggleButton = document.getElementById('uh-toggle-btn');
-    toggleLink.addEventListener('click', toggle);
-    toggleButton.addEventListener('click', toggle);
+    if (toggleLink) {
+      toggleLink.addEventListener('click', toggle);
+    }
+    if (toggleButton) {
+      toggleButton.addEventListener('click', toggle);
+    }
 
     return (
       () => {
-        toggleLink.removeEventListener('click', toggle);
-        toggleButton.removeEventListener('click', toggle);
+        if (toggleLink) {
+          toggleLink.removeEventListener('click', toggle);
+        }
+        if (toggleButton) {
+          toggleButton.removeEventListener('click', toggle);
+        }
       }
     );
   }, [toggle]);
@@ -90,7 +99,6 @@ export const Sidebar = () => {
     if (blogsContainerEle && blogsContainerEle.current) {
       let current = blogsContainerEle.current;
       current.addEventListener('scroll', fetchBlogs);
-
       return (
         () => {
           current.removeEventListener('scroll', fetchBlogs);
@@ -106,7 +114,7 @@ export const Sidebar = () => {
   const renderNavBody = () => {
     if (!showCats) {
       return (
-        <div>
+        <div className="uh-sidebar-container">
           <div className="uh-sidenav-title">
             <div>What's new ?</div>
             <div>
@@ -155,7 +163,7 @@ export const Sidebar = () => {
 
     if (showCats) {
       return (
-        <div>
+        <div className="uh-sidebar-container">
           <div className="uh-sidenav-search">
             <div>
               <KeyboardArrowLeftIcon
@@ -200,11 +208,16 @@ export const Sidebar = () => {
 
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyle width="320" />
       <img src={UhootIcon} alt="toggle-sidebar" id="uh-toggle-btn" />
-      <nav className={isSidebarOpen ? 'uh-sidenav uh-showSideNav' : 'uh-sidenav'} >
+      <Drawer
+        className={isSidebarOpen ? 'uh-sidenav uh-showSideNav' : 'uh-sidenav'}
+        anchor="right"
+        open={isSidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+      >
         {renderNavBody()}
-      </nav>
+      </Drawer>
     </>
   );
 }

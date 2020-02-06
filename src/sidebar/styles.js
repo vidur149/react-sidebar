@@ -39,41 +39,28 @@ span {
 }
 
 .uh-sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
   background-color: #f7f7f7;
-  overflow-x: hidden;
-  transition: 0.2s;
   box-sizing: border-box;
   box-shadow: -1px -1px 15px #0000006b;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
-.uh-showSideNav {
-  width: 320px;
+.uh-sidebar-container {
+  width: ${props => props.width + 'px'};
 }
 
 .uh-sidenav-title {
   align-items: center;
   position: static;
-  width: 320px;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   color: white;
   background: linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%);
-  z-index: 9999;
+  min-height: 74px;
 }
 
 .uh-sidenav-search {
-  position: fixed;
-  width: 320px;
+  position: static;
   top: 0;
   transition: top 0.5s ease;
   padding: 20px;
@@ -87,7 +74,7 @@ span {
 
 #uh-blogs,
 #uh-cats {
-  height: calc(100vh - 67px);
+  height: calc(100vh - 74px);
   overflow-y: auto;
   padding: 10px;
 }
