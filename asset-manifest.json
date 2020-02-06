@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/react-sidebar/static/js/main.fb0d41be.chunk.js",
+    "main.js.map": "/react-sidebar/static/js/main.fb0d41be.chunk.js.map",
+    "runtime-main.js": "/react-sidebar/static/js/runtime-main.51e74cfc.js",
+    "runtime-main.js.map": "/react-sidebar/static/js/runtime-main.51e74cfc.js.map",
+    "static/js/2.ab721a0c.chunk.js": "/react-sidebar/static/js/2.ab721a0c.chunk.js",
+    "static/js/2.ab721a0c.chunk.js.map": "/react-sidebar/static/js/2.ab721a0c.chunk.js.map",
+    "index.html": "/react-sidebar/index.html",
+    "precache-manifest.1495c54dee1dde7f45b3b735016a2b7a.js": "/react-sidebar/precache-manifest.1495c54dee1dde7f45b3b735016a2b7a.js",
+    "service-worker.js": "/react-sidebar/service-worker.js",
+    "static/js/2.ab721a0c.chunk.js.LICENSE.txt": "/react-sidebar/static/js/2.ab721a0c.chunk.js.LICENSE.txt",
+    "static/media/flat.5a1f923a.svg": "/react-sidebar/static/media/flat.5a1f923a.svg",
+    "static/media/happy.a6223361.svg": "/react-sidebar/static/media/happy.a6223361.svg",
+    "static/media/sad.bebeaf66.svg": "/react-sidebar/static/media/sad.bebeaf66.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51e74cfc.js",
+    "static/js/2.ab721a0c.chunk.js",
+    "static/js/main.fb0d41be.chunk.js"
+  ]
+}
