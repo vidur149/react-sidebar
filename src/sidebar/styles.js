@@ -63,7 +63,6 @@ span {
   align-items: center;
   position: fixed;
   width: 320px;
-  top: 0;
   padding: 20px;
   display: flex;
   justify-content: space-between;
