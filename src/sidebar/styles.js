@@ -71,6 +71,7 @@ span {
   color: white;
   background: linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%);
   z-index: 9999;
+  min-height: 100px;
 }
 
 .uh-sidenav-search {
