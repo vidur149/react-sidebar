@@ -4,7 +4,6 @@ import List from '@material-ui/core/List';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import './sidebar.css';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
@@ -16,6 +15,7 @@ import Loader from '../assets/loading.gif';
 import { ReactComponent as Sad } from '../assets/sad.svg';
 import { ReactComponent as Flat } from '../assets/flat.svg';
 import { ReactComponent as Happy } from '../assets/happy.svg';
+import { GlobalStyle } from './styles';
 
 const cats = ['All', 'Announcement', 'Beta', 'Blog', 'Coming Soon', 'Feature', 'Improvement', 'New', 'Other'];
 
@@ -202,6 +202,7 @@ export const Sidebar = () => {
 
   return (
     <>
+      <GlobalStyle />
       <img src={UhootIcon} alt="toggle-sidebar" id="uh-toggle-btn" />
       <nav className={isSidebarOpen ? 'uh-sidenav uh-showSideNav' : 'uh-sidenav'} >
         {renderNavBody()}
