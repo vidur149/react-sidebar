@@ -146,10 +146,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-feedback svg {
-    width: 40px;
+    width: 32px;
     transition: all 0.1s ease-in-out;
-    height: 40px;
-    border: 2px solid white;
+    height: 32px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 1px 2px rgb(209, 209, 209);
     border-radius: 100%;
     margin: 5px;
     cursor: pointer;
@@ -163,13 +163,18 @@ export const GlobalStyle = createGlobalStyle`
     fill: #ffcc4d;
   }
 
+  svg.uh-selected {
+    width: 38px;
+    height: 38px;
+  }
+
   .uh-feedback svg g:hover {
     fill: #ffcc4d;
   }
 
   .uh-feedback svg:hover {
-    width: 45px;
-    height: 45px;
+    width: 38px;
+    height: 38px;
   }
 
   .uh-feedback svg:hover g {
