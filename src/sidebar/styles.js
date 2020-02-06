@@ -70,6 +70,7 @@ span {
   justify-content: space-between;
   color: white;
   background: linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%);
+  z-index: 9999;
 }
 
 .uh-sidenav-search {
@@ -88,8 +89,8 @@ span {
 
 #uh-blogs,
 #uh-cats {
-  padding-top: 84px;
-  height: calc(100vh - 84px);
+  margin-top: 67px;
+  height: calc(100vh - 67px);
   overflow-y: auto;
   padding: 10px;
 }

@@ -47,8 +47,8 @@ export const Sidebar = () => {
   }, [hasMore, loading, blogs]);
 
   const toggle = useCallback(async () => {
+    setBlogs([]);
     if (!isSidebarOpen) {
-      setBlogs([]);
       setSidebarOpen(true);
       await getBlogs(1, true);
       if (blogsContainerEle.current) {
