@@ -209,7 +209,7 @@ span {
 }
 
 .uh-fb-text:focus {
-  min-height: 60px !important;
+  min-height: 100px !important;
 }
 
 #uh-loader {
