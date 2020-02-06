@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { getData, validateEmail } from '../utils';
+import { getData, validateEmail, postData } from '../utils';
 import List from '@material-ui/core/List';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import ListItem from '@material-ui/core/ListItem';
@@ -19,7 +19,12 @@ import { ReactComponent as Flat } from '../assets/flat.svg';
 import { ReactComponent as Happy } from '../assets/happy.svg';
 import { GlobalStyle } from './styles';
 import {
-  SETTINGS_API, CATEGORY_API, BLOGS_API
+  SETTINGS_API,
+  CATEGORY_API,
+  BLOGS_API,
+  FEEDBACK_API,
+  NO_POSTS_MESSAGE,
+  FEEDBACK_MESSAGE
 } from '../constants';
 import { TextField } from '@material-ui/core';
 
@@ -42,6 +47,7 @@ export const Sidebar = () => {
   const [validEmail, setValidEmail] = React.useState(false);
   const [settings, setSetings] = React.useState();
   const [categories, setCats] = React.useState();
+  const [ip, setIp] = React.useState('');
 
   React.useEffect(() => {
     const fetchSettings = async () => {
@@ -52,6 +58,11 @@ export const Sidebar = () => {
       const cats = await getData(CATEGORY_API);
       setCats(cats.data);
     };
+    const fetchIP = async () => {
+      const Ip = await getData('https://api.ipify.org/?format=json');
+      setIp(Ip.ip)
+    };
+    fetchIP();
     fetchSettings();
     fetchCategories();
   }, []);
@@ -167,6 +178,22 @@ export const Sidebar = () => {
     setFeedback(fb);
   };
 
+  const handleMoodSelect = async (id, rating) => {
+    const fb = { ...feedback };
+    if (!fb[id]) {
+      fb[id] = {};
+    }
+    fb[id].rating = rating;
+    setFeedback(fb);
+    const body = {
+      post_key: id,
+      comment: feedback[id] && feedback[id].rating ? feedback[id].rating : 0,
+      email,
+      ip
+    };
+    await postData(FEEDBACK_API, body);
+  };
+
   const handleEmailChange = (event) => {
     const val = event.target.value;
     setEmail(val);
@@ -179,7 +206,7 @@ export const Sidebar = () => {
     }
   };
 
-  const submitFeedback = (id) => {
+  const submitFeedback = async (id) => {
     const steps = { ...step2 };
     if ((email && validEmail) || (!email && steps[id])) {
       if (!steps[id]) {
@@ -189,15 +216,15 @@ export const Sidebar = () => {
       const body = {
         post_key: id,
         comment: feedback[id] ? feedback[id].comment : '',
-        rating: feedback[id] ? feedback[id].rating : 0,
-        email
+        email,
+        ip
       };
       const fbs = { ...feedbackSent };
       if (!fbs[id]) {
         fbs[id] = true;
       }
       setFeedbackSent(fbs);
-      console.log(body);
+      await postData(FEEDBACK_API, body);
     } else {
       if (!steps[id]) {
         steps[id] = true;
@@ -250,17 +277,17 @@ export const Sidebar = () => {
       <div className="uh-fb-sent">
         <CheckIcon />
         <p>
-          Thanks for your feedback!
-         </p>
+          {FEEDBACK_MESSAGE}
+        </p>
       </div>
     );
-  }
+  };
 
   const renderBlogs = () => {
     if (!loading && !blogs.length) {
       return (
         <div className="uh-no-posts">
-          <h4>No pots to display yet</h4>
+          <h4>{NO_POSTS_MESSAGE}</h4>
           <Sad />
         </div>
       );
@@ -284,9 +311,30 @@ export const Sidebar = () => {
               </div>
               <div className="uh-fb-form">
                 <div className="uh-feedback">
-                  <Sad />
-                  <Flat />
-                  <Happy />
+                  <Sad
+                    className={
+                      feedback[blog.id] && feedback[blog.id].rating === 1
+                        ? "uh-selected"
+                        : ''
+                    }
+                    onClick={() => handleMoodSelect(blog.id, 1)}
+                  />
+                  <Flat
+                    className={
+                      feedback[blog.id] && feedback[blog.id].rating === 2
+                        ? "uh-selected"
+                        : ''
+                    }
+                    onClick={() => handleMoodSelect(blog.id, 2)}
+                  />
+                  <Happy
+                    className={
+                      feedback[blog.id] && feedback[blog.id].rating === 3
+                        ? "uh-selected"
+                        : ''
+                    }
+                    onClick={() => handleMoodSelect(blog.id, 3)}
+                  />
                 </div>
                 <div className="uh-fb-container">
                   {renderFeedbackForm(blog.id)}
@@ -309,7 +357,7 @@ export const Sidebar = () => {
       return (
         <div className="uh-sidebar-container">
           <div className="uh-sidenav-title">
-            <div>What's new ?</div>
+            <div>{settings.brand_name}</div>
             <div>
               <SearchIcon id="uh-search" onClick={() => setShowCats(true)} />
               <CloseIcon id="uh-close-sidenav" onClick={closeSidebar} />

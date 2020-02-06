@@ -159,6 +159,10 @@ export const GlobalStyle = createGlobalStyle`
     fill: #d1d1d1;
   }
 
+  svg.uh-selected g {
+    fill: #ffcc4d;
+  }
+
   .uh-feedback svg g:hover {
     fill: #ffcc4d;
   }
