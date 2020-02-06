@@ -88,8 +88,8 @@ span {
 
 #uh-blogs,
 #uh-cats {
-  margin-top: 67px;
-  height: calc(100vh - 67px);
+  padding-top: 84px;
+  height: calc(100vh - 84px);
   overflow-y: auto;
   padding: 10px;
 }
