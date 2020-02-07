@@ -276,7 +276,7 @@ export const Sidebar = () => {
       return (
         <div className="uh-no-posts">
           <h4>{NO_POSTS_MESSAGE}</h4>
-          <Sad />
+          <Flat />
         </div>
       );
     }

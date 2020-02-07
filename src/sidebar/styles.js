@@ -163,12 +163,12 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-  .uh-feedback svg g {
-    fill: #d1d1d1;
+  svg.uh-selected >g path:first-child {
+    fill: #ffcc80;
   }
 
-  svg.uh-selected g {
-    fill: #ffcc4d;
+  svg.uh-selected >g path:nth-child(2) {
+    fill: #ffb74d;
   }
 
   svg.uh-selected {
@@ -176,17 +176,17 @@ export const GlobalStyle = createGlobalStyle`
     height: 38px;
   }
 
-  .uh-feedback svg g:hover {
-    fill: #ffcc4d;
-  }
-
   .uh-feedback svg:hover {
     width: 38px;
     height: 38px;
   }
 
-  .uh-feedback svg:hover g {
-    fill: #ffcc4d;
+  .uh-feedback svg:hover >g path:first-child {
+    fill: #ffcc80;
+  }
+
+  .uh-feedback svg:hover >g path:nth-child(2) {
+    fill: #ffb74d;
   }
 
   .uh-fb-form {
