@@ -107,7 +107,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-post-status {
-    background: #ffae1b;
+    background: ${props => props.catColor || '#ffae1b'};
     padding: 4px 6px;
     font-size: 10px;
     color: #fff;

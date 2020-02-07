@@ -454,6 +454,7 @@ export const Sidebar = () => {
         dateSize={settings.date_size}
         dateWeight={settings.date_weight}
         linkColor={settings.link_color}
+        catColor={settings.category_color}
       />
       {settings.icon_url &&
         <img src={settings.icon_url} alt="toggle-sidebar" id="uh-toggle-btn" />
