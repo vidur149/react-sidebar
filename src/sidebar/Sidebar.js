@@ -13,7 +13,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import CheckIcon from '@material-ui/icons/Check';
 import SendIcon from '@material-ui/icons/Send';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
-import Loader from '../assets/loading.gif';
 import { ReactComponent as Sad } from '../assets/sad.svg';
 import { ReactComponent as Flat } from '../assets/flat.svg';
 import { ReactComponent as Happy } from '../assets/happy.svg';
@@ -26,7 +25,7 @@ import {
   FEEDBACK_MESSAGE,
   FEEDBACK_API_QS
 } from '../constants';
-import { TextField } from '@material-ui/core';
+import { TextField, CircularProgress } from '@material-ui/core';
 
 const catColors = ['#8da2b5', '#ffae1b', '#ff5a80', '#fbae4e', '#59d457', '#9eccaf', '#71c4ff', '#ff5a80', '#26c6da'];
 
@@ -343,7 +342,7 @@ export const Sidebar = () => {
           ))}
           {loading &&
             <div id="uh-loader">
-              <img src={Loader} alt="loader" />
+              <CircularProgress />
             </div>
           }
         </div>
