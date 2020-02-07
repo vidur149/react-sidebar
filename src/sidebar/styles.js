@@ -21,11 +21,12 @@ export const GlobalStyle = createGlobalStyle`
 
   #uh-toggle-btn {
     position: fixed;
-    bottom: 0;
-    width: 80px;
-    height: 80px;
-    right: ${props => props.iconPos === 'left' ? 'calc(100% - 80px)' : 0};
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    right: ${props => props.iconPos === 'left' ? 'calc(100% - 80px)' : '20px'};
     cursor: pointer;
+    z-index: 999;
   }
 
   #uh-close-sidenav,
