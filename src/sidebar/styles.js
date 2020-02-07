@@ -57,8 +57,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    color: white;
-    background: linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%);
+    color: ${props => props.brandColor || 'white'};
+    background: ${props => props.brandBg || 'linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%)'};
+    font-family: ${props => props.brandFont};
+    font-size: ${props => props.brandSize};
+    font-weight: ${props => props.brandWeight};
     min-height: 74px;
   }
 
@@ -86,8 +89,11 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-color: rgb(66, 66, 66);
     margin-bottom: 15px;
-    color: rgb(66, 66, 66);
-    background: white;
+    background: ${props => props.bodyBg || 'white'};
+    font-family: ${props => props.bodyFont};
+    color: ${props => props.bodyColor || 'rgb(66, 66, 66)'};
+    font-size: ${props => props.bodySize};
+    font-weight: ${props => props.bodyWeight || '400'};
   }
 
   .uh-post-content {
@@ -112,15 +118,18 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-post-date {
-    color: #8da2b5;
+    color: ${props => props.dateColor || '#8da2b5'};
+    font-size: ${props => props.dateSize};
+    font-weight: ${props => props.dateWeight || '400'};
   }
 
   .uh-post-heading {
-    font-weight: 700;
+    font-family: ${props => props.titleFont};
+    font-size: ${props => props.titleSize || '20px'};
+    font-weight: ${props => props.titleWeight || '700'};
+    color: ${props => props.titleColor || '#4b63af'};
     margin-bottom: 15px;
     line-height: 1.4;
-    color: #4b63af;
-    font-size: 20px;
   }
 
   .uh-list-icon {
@@ -279,5 +288,10 @@ export const GlobalStyle = createGlobalStyle`
   .uh-fb-sent svg{
     margin-right: 6px;
     fill: #00d8a6
+  }
+
+  .uh-link {
+    text-decoration: none;
+    color: ${props => props.linkColor || '#4b63af'};
   }
 `;

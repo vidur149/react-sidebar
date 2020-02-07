@@ -9,3 +9,5 @@ export const FEEDBACK_API = `https://app.userhoot.com/notify/feedback/save?proje
 export const NO_POSTS_MESSAGE = 'No posts to display yet';
 
 export const FEEDBACK_MESSAGE = 'Thanks for your feedback!';
+
+export const FEEDBACK_API_QS = (postKey, ip, comment, rating, email) => `https://app.userhoot.com/notify/feedback/save?projectkey=${window.uHootSettings.projectKey}&post_key=${postKey}&ip=${ip}&comment=${comment}&email=${email}&rating=${rating}`;

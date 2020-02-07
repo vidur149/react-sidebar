@@ -22,9 +22,9 @@ import {
   SETTINGS_API,
   CATEGORY_API,
   BLOGS_API,
-  FEEDBACK_API,
   NO_POSTS_MESSAGE,
-  FEEDBACK_MESSAGE
+  FEEDBACK_MESSAGE,
+  FEEDBACK_API_QS
 } from '../constants';
 import { TextField } from '@material-ui/core';
 
@@ -185,13 +185,7 @@ export const Sidebar = () => {
     }
     fb[id].rating = rating;
     setFeedback(fb);
-    const body = {
-      post_key: id,
-      comment: feedback[id] && feedback[id].rating ? feedback[id].rating : 0,
-      email,
-      ip
-    };
-    await postData(FEEDBACK_API, body);
+    await postData(FEEDBACK_API_QS(id, ip, '', rating, email), new FormData());
   };
 
   const handleEmailChange = (event) => {
@@ -213,18 +207,12 @@ export const Sidebar = () => {
         steps[id] = false;
       }
       setStep2(steps);
-      const body = {
-        post_key: id,
-        comment: feedback[id] ? feedback[id].comment : '',
-        email,
-        ip
-      };
       const fbs = { ...feedbackSent };
       if (!fbs[id]) {
         fbs[id] = true;
       }
       setFeedbackSent(fbs);
-      await postData(FEEDBACK_API, body);
+      await postData(FEEDBACK_API_QS(id, ip, feedback[id] ? feedback[id].comment : '', 0, email), new FormData());
     } else {
       if (!steps[id]) {
         steps[id] = true;
@@ -297,47 +285,58 @@ export const Sidebar = () => {
       <>
         <div id="uh-blogs" ref={blogsContainerEle}>
           {blogs.map(blog => (
-            <div key={blog.id} className="uh-post">
+            <div key={blog.content_key} className="uh-post">
               <div className="uh-post-content">
                 <div className="uh-post-title">
-                  <span className="uh-post-status">{blog.status}</span>
+                  {blog.category_title && (
+                    <span className="uh-post-status">{blog.category_title}</span>
+                  )}
                   <span className="uh-post-date">{blog.created_at.date}</span>
                 </div>
                 <div className="uh-post-heading">
                   {blog.title}
-                  {blog.category_title ? ` - ${blog.category_title}` : ''}
                 </div>
                 <div dangerouslySetInnerHTML={{ __html: blog.post_content }} />
+                {blog.link_url && blog.link_text && (
+                  <a
+                    href={blog.link_url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    className="uh-link"
+                  >
+                    {blog.link_text}
+                  </a>
+                )}
               </div>
               <div className="uh-fb-form">
                 <div className="uh-feedback">
                   <Sad
                     className={
-                      feedback[blog.id] && feedback[blog.id].rating === 1
+                      feedback[blog.content_key] && feedback[blog.content_key].rating === 1
                         ? "uh-selected"
                         : ''
                     }
-                    onClick={() => handleMoodSelect(blog.id, 1)}
+                    onClick={() => handleMoodSelect(blog.content_key, 1)}
                   />
                   <Flat
                     className={
-                      feedback[blog.id] && feedback[blog.id].rating === 2
+                      feedback[blog.content_key] && feedback[blog.content_key].rating === 2
                         ? "uh-selected"
                         : ''
                     }
-                    onClick={() => handleMoodSelect(blog.id, 2)}
+                    onClick={() => handleMoodSelect(blog.content_key, 2)}
                   />
                   <Happy
                     className={
-                      feedback[blog.id] && feedback[blog.id].rating === 3
+                      feedback[blog.content_key] && feedback[blog.content_key].rating === 3
                         ? "uh-selected"
                         : ''
                     }
-                    onClick={() => handleMoodSelect(blog.id, 3)}
+                    onClick={() => handleMoodSelect(blog.content_key, 3)}
                   />
                 </div>
                 <div className="uh-fb-container">
-                  {renderFeedbackForm(blog.id)}
+                  {renderFeedbackForm(blog.content_key)}
                 </div>
               </div>
             </div>
@@ -438,6 +437,24 @@ export const Sidebar = () => {
       <GlobalStyle
         width={settings.sidebar_width}
         iconPos={settings.icon_position}
+        brandColor={settings.brand_color}
+        brandFont={settings.brand_font}
+        brandSize={settings.brand_size}
+        brandBg={settings.brand_bgcolor}
+        brandWeight={settings.brand_weight}
+        titleColor={settings.title_color}
+        titleFont={settings.title_font}
+        titleSize={settings.title_size}
+        titleWeight={settings.title_weight}
+        bodyBg={settings.body_bgcolor}
+        bodyColor={settings.body_color}
+        bodyFont={settings.body_font}
+        bodySize={settings.body_size}
+        bodyWeight={settings.body_weight}
+        dateColor={settings.date_color}
+        dateSize={settings.date_size}
+        dateWeight={settings.date_weight}
+        linkColor={settings.link_color}
       />
       {settings.icon_url &&
         <img src={settings.icon_url} alt="toggle-sidebar" id="uh-toggle-btn" />
