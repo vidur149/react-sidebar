@@ -288,7 +288,14 @@ export const Sidebar = () => {
               <div className="uh-post-content">
                 <div className="uh-post-title">
                   {blog.category_title && (
-                    <span className="uh-post-status">{blog.category_title}</span>
+                    <span
+                      style={{
+                        background: blog.category_color
+                      }}
+                      className="uh-post-status"
+                    >
+                      {blog.category_title}
+                    </span>
                   )}
                   <span className="uh-post-date">{blog.created_at.date}</span>
                 </div>
@@ -454,7 +461,6 @@ export const Sidebar = () => {
         dateSize={settings.date_size}
         dateWeight={settings.date_weight}
         linkColor={settings.link_color}
-        catColor={settings.category_color}
       />
       {settings.icon_url &&
         <img src={settings.icon_url} alt="toggle-sidebar" id="uh-toggle-btn" />
