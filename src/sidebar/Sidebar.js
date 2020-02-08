@@ -29,8 +29,6 @@ import {
 } from '../constants';
 import { TextField, CircularProgress } from '@material-ui/core';
 
-const catColors = ['#8da2b5', '#ffae1b', '#ff5a80', '#fbae4e', '#59d457', '#9eccaf', '#71c4ff', '#ff5a80', '#26c6da'];
-
 export const Sidebar = () => {
   const [isSidebarOpen, setSidebarOpen] = React.useState(false);
   const [pageNo, setPageNo] = React.useState(0);
@@ -420,7 +418,7 @@ export const Sidebar = () => {
                   <span
                     className="uh-list-icon"
                     style={{
-                      background: catColors[index % (catColors.length - 1)]
+                      background: cat.category_color
                     }}
                   />
                   <ListItemText
@@ -481,12 +479,17 @@ export const Sidebar = () => {
         onClose={() => setSidebarOpen(false)}
       >
         {renderNavBody()}
-        <p className="uh-banner-fixed">
-          <img
-            src={UhootIcon}
-            alt="uhoot-logo"
-          />
-          {BOTTOM_MESSAGE}</p>
+        {(!settings.remove_watermark || settings.remove_watermark !== 0) && (
+          <div className="uh-banner-fixed">
+            <img
+              src={UhootIcon}
+              alt="uhoot-logo"
+            />
+            <p>
+              {BOTTOM_MESSAGE}
+            </p>
+          </div>
+        )}
       </Drawer>
     </>
   );

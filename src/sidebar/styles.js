@@ -34,6 +34,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-sidenav {
+    font-family: Helvetica;
     position: static !important;
     background-color: #f7f7f7;
     box-sizing: border-box;
@@ -73,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
 
   #uh-blogs,
   #uh-cats {
-    height: calc(100vh - 104px);
+    height: calc(100vh - 99px);
     overflow-y: auto;
     padding: 10px;
   }
@@ -289,9 +290,14 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-banner-fixed {
+    color: rgb(119, 118, 120);
+    font-size: 13px;
     display: flex;
     justify-content: center;
-    align-itmes: center;
+    align-items: center;
+  }
+
+  .uh-banner-fixed p {
     margin: 5px 0px;
   }
 
