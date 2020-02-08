@@ -23,7 +23,8 @@ import {
   BLOGS_API,
   NO_POSTS_MESSAGE,
   FEEDBACK_MESSAGE,
-  FEEDBACK_API_QS
+  FEEDBACK_API_QS,
+  BOTTOM_MESSAGE
 } from '../constants';
 import { TextField, CircularProgress } from '@material-ui/core';
 
@@ -466,12 +467,25 @@ export const Sidebar = () => {
         <img src={settings.icon_url} alt="toggle-sidebar" id="uh-toggle-btn" />
       }
       <Drawer
-        className={isSidebarOpen ? 'uh-sidenav uh-showSideNav' : 'uh-sidenav'}
+        ModalProps={{
+          BackdropProps: {
+            style: {
+              zIndex: 1
+            }
+          }
+        }}
+        className="uh-sidenav"
         anchor={settings.sidebar_position}
         open={isSidebarOpen}
         onClose={() => setSidebarOpen(false)}
       >
         {renderNavBody()}
+        <p className="uh-banner-fixed">
+          <img
+            src={settings.icon_url}
+            alt="logo"
+          />
+          {BOTTOM_MESSAGE}</p>
       </Drawer>
     </>
   );

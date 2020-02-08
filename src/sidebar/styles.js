@@ -1,16 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-      "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  #uh-sidebar {
+    font-family: Helvetica;
   }
 
   div,
@@ -42,10 +34,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-sidenav {
+    position: static !important;
     background-color: #f7f7f7;
     box-sizing: border-box;
     box-shadow: -1px -1px 15px #0000006b;
-
   }
 
   .uh-sidebar-container {
@@ -59,10 +51,10 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     justify-content: space-between;
     color: ${props => props.brandColor || 'white'};
-    background: ${props => props.brandBg || 'linear-gradient(180deg, #3d50e0 0, #3d50e0ab 100%)'};
-    font-family: ${props => props.brandFont};
-    font-size: ${props => props.brandSize};
-    font-weight: ${props => props.brandWeight};
+    background: ${props => props.brandBg || '#000000'};
+    font-family: ${props => props.brandFont || 'Helvetica'};
+    font-size: ${props => props.brandSize || '20px'};
+    font-weight: ${props => props.brandWeight || '600'};
     min-height: 74px;
   }
 
@@ -81,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
 
   #uh-blogs,
   #uh-cats {
-    height: calc(100vh - 74px);
+    height: calc(100vh - 102px);
     overflow-y: auto;
     padding: 10px;
   }
@@ -93,7 +85,7 @@ export const GlobalStyle = createGlobalStyle`
     background: ${props => props.bodyBg || 'white'};
     font-family: ${props => props.bodyFont};
     color: ${props => props.bodyColor || 'rgb(66, 66, 66)'};
-    font-size: ${props => props.bodySize};
+    font-size: ${props => props.bodySize || '14px !important'};
     font-weight: ${props => props.bodyWeight || '400'};
   }
 
@@ -294,5 +286,17 @@ export const GlobalStyle = createGlobalStyle`
   .uh-link {
     text-decoration: none;
     color: ${props => props.linkColor || '#4b63af'};
+  }
+
+  .uh-banner-fixed {
+    display: flex;
+    justify-content: center;
+    align-itmes: center;
+    margin: 5px 0px;
+  }
+
+  .uh-banner-fixed img {
+    width: 20px;
+    margin-right: 10px;
   }
 `;
