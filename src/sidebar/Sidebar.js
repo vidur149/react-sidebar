@@ -273,9 +273,11 @@ export const Sidebar = () => {
   const renderBlogs = () => {
     if (!loading && !blogs.length) {
       return (
-        <div className="uh-no-posts">
-          <h4>{NO_POSTS_MESSAGE}</h4>
-          <Flat />
+        <div id="uh-blogs">
+          <div className="uh-no-posts">
+            <h4>{NO_POSTS_MESSAGE}</h4>
+            <Flat />
+          </div>
         </div>
       );
     }
@@ -408,7 +410,11 @@ export const Sidebar = () => {
             </div>
           </div>
           {(!title) || isSearchFocused ? <div id="uh-cats">
-            <List className="uh-cats" component="nav" aria-label="secondary mailbox folders">
+            <List
+              className="uh-cats"
+              component="nav"
+              aria-label="category"
+            >
               {categories.map((cat, index) => (
                 <ListItem
                   button

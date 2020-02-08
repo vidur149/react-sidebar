@@ -74,16 +74,17 @@ export const GlobalStyle = createGlobalStyle`
 
   #uh-blogs,
   #uh-cats {
-    height: calc(100vh - 99px);
+    height: calc(100vh - 109px);
     overflow-y: auto;
     padding: 10px;
+    background: ${props => props.bodyBg || '#f7f7f7'};
   }
 
   .uh-post {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-color: rgb(66, 66, 66);
     margin-bottom: 15px;
-    background: ${props => props.bodyBg || 'white'};
+    background: white;
     font-family: ${props => props.bodyFont};
     color: ${props => props.bodyColor || 'rgb(66, 66, 66)'};
     font-size: ${props => props.bodySize || '14px !important'};
@@ -297,9 +298,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-banner-fixed a {
+    color: black;
+    text-decoration: none;
+    margin: 10px 0px;
+  }
+
+  .uh-banner-fixed a:hover {
     color: rgb(119, 118, 120);
     text-decoration: none;
-    margin: 5px 0px;
+    margin: 10px 0px;
   }
 
   .uh-banner-fixed img {
