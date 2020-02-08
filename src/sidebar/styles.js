@@ -290,7 +290,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-banner-fixed {
-    color: rgb(119, 118, 120);
     font-size: 13px;
     display: flex;
     justify-content: center;
@@ -298,6 +297,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .uh-banner-fixed a {
+    color: rgb(119, 118, 120);
     text-decoration: none;
     margin: 5px 0px;
   }
