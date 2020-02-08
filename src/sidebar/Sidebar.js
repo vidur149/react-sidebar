@@ -16,6 +16,7 @@ import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import { ReactComponent as Sad } from '../assets/sad.svg';
 import { ReactComponent as Flat } from '../assets/flat.svg';
 import { ReactComponent as Happy } from '../assets/happy.svg';
+import UhootIcon from '../assets/uhooticon.png';
 import { GlobalStyle } from './styles';
 import {
   SETTINGS_API,
@@ -482,8 +483,8 @@ export const Sidebar = () => {
         {renderNavBody()}
         <p className="uh-banner-fixed">
           <img
-            src={settings.icon_url}
-            alt="logo"
+            src={UhootIcon}
+            alt="uhoot-logo"
           />
           {BOTTOM_MESSAGE}</p>
       </Drawer>
