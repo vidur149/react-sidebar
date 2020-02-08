@@ -297,12 +297,13 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
-  .uh-banner-fixed p {
+  .uh-banner-fixed a {
+    text-decoration: none;
     margin: 5px 0px;
   }
 
   .uh-banner-fixed img {
     width: 20px;
-    margin-right: 10px;
+    margin-right: 6px;
   }
 `;

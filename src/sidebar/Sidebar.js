@@ -485,9 +485,13 @@ export const Sidebar = () => {
               src={UhootIcon}
               alt="uhoot-logo"
             />
-            <p>
+            <a
+              href="https://www.userhoot.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {BOTTOM_MESSAGE}
-            </p>
+            </a>
           </div>
         )}
       </Drawer>
