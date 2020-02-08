@@ -73,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
 
   #uh-blogs,
   #uh-cats {
-    height: calc(100vh - 102px);
+    height: calc(100vh - 104px);
     overflow-y: auto;
     padding: 10px;
   }
