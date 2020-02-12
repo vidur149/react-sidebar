@@ -112,7 +112,7 @@ export const Sidebar = () => {
   }, [blogsContainerEle, getBlogs, pageNo, loading]);
 
   React.useEffect(() => {
-    const toggleLink = document.getElementById('toggle-sidebar');
+    const toggleLink = document.getElementById('uh-toggle-sidebar');
     const toggleButton = document.getElementById('uh-toggle-btn');
     if (toggleLink) {
       toggleLink.addEventListener('click', toggle);
