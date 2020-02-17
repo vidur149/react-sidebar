@@ -72,12 +72,18 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
   }
 
+  #uh-blogs::-webkit-scrollbar,
+  #uh-cats::-webkit-scrollbar {
+    display: none;
+  }
+
   #uh-blogs,
   #uh-cats {
-    height: calc(100vh - 109px);
     overflow-y: auto;
+    height: calc(100vh - 109px);
     padding: 10px;
     background: ${props => props.bodyBg || '#f7f7f7'};
+    -ms-overflow-style: none;
   }
 
   .uh-post {

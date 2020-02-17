@@ -102,7 +102,7 @@ export const Sidebar = () => {
   const fetchBlogs = useCallback(async () => {
     if (blogsContainerEle && blogsContainerEle.current) {
       if (
-        blogsContainerEle.current.scrollTop + 20 > blogsContainerEle.current.clientHeight
+        blogsContainerEle.current.scrollTop + blogsContainerEle.current.clientHeight + 20 > blogsContainerEle.current.scrollHeight
       ) {
         if (!loading) {
           await getBlogs(pageNo + 1);
